@@ -5,13 +5,16 @@ function App() {
   const [dados, setDados] = useState(null);
 
   async function buscar() {
-    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const data = await res.json();
-    setDados(data);
-  }
+  const cepLimpo = cep.replace(/\D/g, "")
+
+  const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`)
+  const data = await res.json()
+
+  setDados(data)
+}
 
   return (
-    <div class="procurarCEP"
+    <div 
       style={{
         display: "flex",
         justifyContent: "center",
@@ -26,7 +29,7 @@ function App() {
 
       <button onClick={buscar}>Buscar</button>
 
-      {dados && <p class="cidadeCEP">{dados.localidade}</p>}
+      {dados && <p className="cidadeCEP">{dados.localidade}</p>}
     </div>
   );
 }
