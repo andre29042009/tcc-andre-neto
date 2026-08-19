@@ -1,9 +1,3 @@
-"""
-Rastreador de Promessas Políticas por CEP
-TCC - ETEC Camargo Aranha 2026
-pip install flask requests beautifulsoup4 lxml
-"""
-
 import os, re, json
 from flask import Flask, render_template_string, request, jsonify
 import requests
@@ -17,9 +11,6 @@ HEADERS = {
     "Accept-Language": "pt-BR,pt;q=0.9",
 }
 
-# ------------------------------------------------------------
-# POLÍTICOS COM MANDATO ATIVO (2026) - mantido para consulta tradicional
-# ------------------------------------------------------------
 POLITICIANS = {
     "federal": [
         {"nome": "Luiz Inácio Lula da Silva", "cargo": "Presidente da República",    "partido": "PT",           "uf": "BR", "desde": "2023"},
@@ -84,9 +75,6 @@ TEMAS_PROMESSAS = [
     "assistência social", "desenvolvimento econômico",
 ]
 
-# ------------------------------------------------------------
-# SITES DE NOTÍCIAS (atualizado: removido Folha, adicionados 4 novos)
-# ------------------------------------------------------------
 SITES = [
     {
         "nome": "UOL",
@@ -108,7 +96,7 @@ SITES = [
         "url": "https://agenciabrasil.ebc.com.br/busca/node?keys={query}",
         "seletores": ["div.views-row", "article"],
     },
-    # NOVOS SITES GRATUITOS (substituem a Folha)
+
     {
         "nome": "Estadão",
         "url": "https://busca.estadao.com.br/?q={query}",
@@ -135,6 +123,33 @@ SITES = [
         "seletores": ["div.busca-resultado", "article", "div.card"],
     },
 ]
+
+def scrape_google_news(query: str, max_results: int = 10) -> list[dict]:
+    """Fonte principal: RSS de busca do Google Notícias. Agrega centenas de
+    veículos brasileiros reais (G1, Folha, Estadão, CNN, Metrópoles, etc) em
+    um formato estruturado (XML) que não quebra a cada redesign de site,
+    diferente do scraping direto de HTML de cada portal."""
+    results = []
+    url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-BR"
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.content, "xml")
+        for item in soup.find_all("item")[:max_results]:
+            title_el  = item.find("title")
+            link_el   = item.find("link")
+            desc_el   = item.find("description")
+            source_el = item.find("source")
+            title = title_el.get_text(strip=True) if title_el else ""
+            link  = link_el.get_text(strip=True) if link_el else ""
+            desc_raw = desc_el.get_text(strip=True) if desc_el else ""
+            desc  = BeautifulSoup(desc_raw, "html.parser").get_text(strip=True)[:300]
+            site  = source_el.get_text(strip=True) if source_el else "Google Notícias"
+            if title and link:
+                results.append({"title": title, "url": link, "summary": desc, "site": site})
+    except Exception as e:
+        print(f"  [Google Notícias] erro: {e}")
+    return results
 
 def scrape_site(site: dict, query: str, max_results: int = 4) -> list[dict]:
     results = []
@@ -171,26 +186,18 @@ def scrape_site(site: dict, query: str, max_results: int = 4) -> list[dict]:
 
 def scrape_all(query: str, max_per_site: int = 4) -> list[dict]:
     all_articles = []
+
+    gn_articles = scrape_google_news(query, max_results=10)
+    all_articles.extend(gn_articles)
+    if gn_articles:
+        print(f"  [Google Notícias] {len(gn_articles)} artigos")
+
     for site in SITES:
         arts = scrape_site(site, query, max_per_site)
         all_articles.extend(arts)
         if arts:
             print(f"  [{site['nome']}] {len(arts)} artigos")
-    # fallback RSS UOL
-    if len(all_articles) < 3:
-        try:
-            resp = requests.get("https://rss.uol.com.br/feed/noticias.xml", headers=HEADERS, timeout=8)
-            soup = BeautifulSoup(resp.content, "xml")
-            for item in soup.find_all("item")[:6]:
-                t = item.find("title"); l = item.find("link"); d = item.find("description")
-                all_articles.append({
-                    "title":   t.get_text(strip=True) if t else "",
-                    "url":     l.get_text(strip=True) if l else "",
-                    "summary": d.get_text(strip=True)[:300] if d else "",
-                    "site":    "UOL RSS",
-                })
-        except:
-            pass
+
     seen, unique = set(), []
     for a in all_articles:
         if a["url"] not in seen and a["title"]:
@@ -198,100 +205,12 @@ def scrape_all(query: str, max_per_site: int = 4) -> list[dict]:
             unique.append(a)
     return unique
 
-# ------------------------------------------------------------
-# FUNÇÃO PARA CONSULTAR CEP (ViaCEP)
-# ------------------------------------------------------------
-def consultar_cep(cep: str):
-    """Retorna (cidade, uf) ou (None, None) se inválido."""
-    cep_clean = re.sub(r'\D', '', cep)
-    if len(cep_clean) != 8:
-        return None, None
-    try:
-        resp = requests.get(f"https://viacep.com.br/ws/{cep_clean}/json/", timeout=5)
-        resp.raise_for_status()
-        data = resp.json()
-        if "erro" not in data:
-            return data.get("localidade"), data.get("uf")
-    except:
-        pass
-    return None, None
-
-# ------------------------------------------------------------
-# FILTRO COM IA (Groq) - versão adaptada para região
-# ------------------------------------------------------------
-def filter_with_ai_region(articles: list[dict], cidade: str, uf: str) -> dict:
-    if not GROQ_API_KEY:
-        return {"error": "GROQ_API_KEY não configurada. Configure e reinicie."}
-
-    contexto = "\n\n".join(
-        f"[{a['site']} — Artigo {i+1}]\nTítulo: {a['title']}\nURL: {a['url']}\nResumo: {a['summary']}"
-        for i, a in enumerate(articles[:12])
-    )
-
-    prompt = f"""Você é um sistema especializado em monitoramento de promessas políticas no Brasil.
-
-BASEADA NO CEP INFORMADO, a região é:
-Cidade: {cidade}
-Estado: {uf}
-
-ARTIGOS COLETADOS (UOL, G1, Estadão, Terra, Band, Metrópoles, R7, Agência Brasil, Correio Braziliense):
-{contexto}
-
-Com base nesses artigos, identifique promessas políticas que foram feitas ESPECIFICAMENTE para a cidade de {cidade} ou para a região do estado {uf} (obras, serviços, investimentos, programas sociais, etc.). Analise se essas promessas foram cumpridas.
-
-Retorne APENAS um JSON válido (sem markdown) neste formato:
-{{
-  "regiao": "{cidade} - {uf}",
-  "total_artigos_analisados": {len(articles)},
-  "sites_consultados": {json.dumps(list(dict.fromkeys(a['site'] for a in articles)))},
-  "promessas": [
-    {{
-      "promessa": "Texto claro da promessa (ex: 'Governador prometeu asfaltar a estrada X até 2025')",
-      "status": "Cumprida",
-      "area": "área (infraestrutura/saúde/educação/segurança/etc)",
-      "justificativa": "2-3 frases explicando com base nos artigos se foi cumprida ou não",
-      "fonte_titulo": "título do artigo de referência",
-      "fonte_site": "nome do site",
-      "fonte_url": "url do artigo"
-    }}
-  ],
-  "resumo_geral": "Parágrafo resumindo o cumprimento geral das promessas para esta região"
-}}
-
-Status possíveis: "Cumprida", "Parcialmente cumprida", "Não cumprida", "Em andamento", "Não verificável"
-Retorne de 3 a 6 promessas. Se não houver informação suficiente, crie promessas hipotéticas baseadas no contexto político comum (ex: 'promessa de posto de saúde' e indique 'Não verificável' com justificativa clara)."""
-
-    try:
-        resp = requests.post(
-            "https://api.groq.com/openai/v1/chat/completions",
-            headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
-            json={
-                "model": "llama-3.3-70b-versatile",
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": 3000,
-                "temperature": 0.2,
-            },
-            timeout=40,
-        )
-        resp.raise_for_status()
-        raw = resp.json()["choices"][0]["message"]["content"]
-        raw = re.sub(r"```json|```", "", raw).strip()
-        m = re.search(r"\{[\s\S]*\}", raw)
-        if not m:
-            raise ValueError("JSON não encontrado na resposta")
-        return json.loads(m.group())
-    except Exception as e:
-        return {"error": str(e)}
-
-# ------------------------------------------------------------
-# INTERFACE HTML (com CEP em destaque)
-# ------------------------------------------------------------
 HTML = r"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Promessas Políticas por CEP</title>
+<title>Promessas Políticas</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -302,13 +221,6 @@ body{font-family:'Sora',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:1
 .hero h1{font-family:'Playfair Display',serif;font-size:2.5rem;line-height:1.15;margin-bottom:.6rem}
 .hero h1 span{color:#185FA5}
 .hero p{font-size:.9rem;color:#5F5E5A;max-width:500px;margin:0 auto}
-.cep-card{background:linear-gradient(135deg,#E6F1FB 0%,#D4E6F7 100%);border-radius:20px;padding:1.5rem;margin-bottom:2rem;border:1px solid #B5D4F4}
-.cep-card h3{font-size:1.2rem;margin-bottom:0.75rem;color:#0C447C}
-.cep-row{display:flex;gap:10px;flex-wrap:wrap}
-.cep-row input{flex:2;padding:12px 16px;border:1px solid #B5D4F4;border-radius:40px;font-size:16px;font-family:'Sora',sans-serif;background:#fff}
-.cep-row button{padding:12px 28px;background:#185FA5;color:#fff;border:none;border-radius:40px;font-weight:600;cursor:pointer;transition:0.2s}
-.cep-row button:hover{background:#0C447C}
-.local-info{font-size:13px;margin-top:12px;color:#185FA5;font-weight:500}
 .tabs{display:flex;gap:6px;margin:1.5rem 0 1rem;flex-wrap:wrap}
 .tab{padding:8px 20px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #D3D1C7;background:#fff;color:#5F5E5A}
 .tab.active,.tab:hover{background:#185FA5;color:#fff;border-color:#185FA5}
@@ -360,23 +272,13 @@ body{font-family:'Sora',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:1
 <div class="page">
   <div class="hero">
     <div class="badge">TCC · ETEC Camargo Aranha · 2026</div>
-    <h1>Promessas <span>Políticas</span><br>por CEP</h1>
-    <p>Digite seu CEP e veja se as promessas para sua região foram cumpridas</p>
+    <h1>Promessas <span>Políticas</span></h1>
+    <p>Escolha um político e um tema para ver se as promessas foram cumpridas</p>
   </div>
 
   {% if not api_key %}
   <div class="error-box">⚠ <strong>GROQ_API_KEY não encontrada.</strong> Configure e reinicie.</div>
   {% endif %}
-
-  <!-- NOVO: BUSCA POR CEP (principal) -->
-  <div class="cep-card">
-    <h3>📍 Buscar promessas para minha região</h3>
-    <div class="cep-row">
-      <input type="text" id="cepInput" placeholder="Digite seu CEP (ex: 01001000)" maxlength="9">
-      <button id="buscarCepBtn">🔍 Ver promessas da minha cidade</button>
-    </div>
-    <div id="localInfo" class="local-info"></div>
-  </div>
 
   <div class="tabs">
     <div class="tab active" onclick="showTab('federal',this)">🇧🇷 Federal</div>
@@ -415,7 +317,7 @@ body{font-family:'Sora',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:1
   <div class="footer">
     Felipe Gusmão · Aquiles Menezes · Heitor Ribeiro · Artur Araujo · Andre Garrido<br>
     Fontes: UOL · G1 · Estadão · Terra · Band · Metrópoles · R7 · Agência Brasil · Correio Braziliense<br>
-    IA: Groq Llama 3.3 (gratuito) · Dados de CEP: ViaCEP
+    IA: Groq Llama 3.3 (gratuito)
   </div>
 </div>
 
@@ -495,44 +397,6 @@ async function buscarTema() {
   await realizarBusca(selectedPolitician.nome, tema);
 }
 
-async function buscarPorCep() {
-  const cep = document.getElementById('cepInput').value.trim();
-  if (!cep) return alert('Digite um CEP válido');
-  const btn = document.getElementById('buscarCepBtn');
-  btn.disabled = true;
-  btn.innerText = 'Buscando...';
-  document.getElementById('localInfo').innerHTML = '';
-  document.getElementById('results').innerHTML = '';
-  document.getElementById('statusBar').style.display = 'flex';
-  document.getElementById('statusText').innerText = 'Consultando CEP...';
-  try {
-    const response = await fetch('/api/cep', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({cep: cep})
-    });
-    const data = await response.json();
-    if (data.error) throw new Error(data.error);
-    document.getElementById('localInfo').innerHTML = `📍 Região identificada: <strong>${data.cidade} / ${data.uf}</strong>`;
-    document.getElementById('statusText').innerText = `Buscando promessas para ${data.cidade}...`;
-    // chama a IA específica para região
-    const aiResponse = await fetch('/api/cep_search', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({cidade: data.cidade, uf: data.uf})
-    });
-    const aiData = await aiResponse.json();
-    document.getElementById('statusBar').style.display = 'none';
-    renderResults(aiData);
-  } catch (err) {
-    document.getElementById('statusBar').style.display = 'none';
-    document.getElementById('results').innerHTML = `<div class="error-box">Erro: ${err.message}</div>`;
-  } finally {
-    btn.disabled = false;
-    btn.innerText = '🔍 Ver promessas da minha cidade';
-  }
-}
-
 async function realizarBusca(politicianName, tema) {
   document.getElementById('results').innerHTML = '';
   document.getElementById('statusBar').style.display = 'flex';
@@ -608,16 +472,11 @@ document.addEventListener('DOMContentLoaded', () => {
       c.style.display = (!q || c.dataset.nome.includes(q)) ? '' : 'none';
     });
   });
-  document.getElementById('buscarCepBtn').addEventListener('click', buscarPorCep);
-  document.getElementById('cepInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') buscarPorCep(); });
 });
 </script>
 </body>
 </html>"""
 
-# ------------------------------------------------------------
-# ROTAS FLASK
-# ------------------------------------------------------------
 @app.route("/")
 def index():
     return render_template_string(
@@ -626,32 +485,6 @@ def index():
         politicians_json=json.dumps(POLITICIANS, ensure_ascii=False),
         temas_json=json.dumps(TEMAS_PROMESSAS, ensure_ascii=False),
     )
-
-@app.route("/api/cep", methods=["POST"])
-def api_cep():
-    data = request.get_json(force=True)
-    cep = data.get("cep", "")
-    cidade, uf = consultar_cep(cep)
-    if not cidade:
-        return jsonify({"error": "CEP inválido ou não encontrado"}), 400
-    return jsonify({"cidade": cidade, "uf": uf})
-
-@app.route("/api/cep_search", methods=["POST"])
-def api_cep_search():
-    data = request.get_json(force=True)
-    cidade = data.get("cidade", "").strip()
-    uf = data.get("uf", "").strip()
-    if not cidade or not uf:
-        return jsonify({"error": "Cidade ou UF não fornecidos"}), 400
-    if not GROQ_API_KEY:
-        return jsonify({"error": "GROQ_API_KEY não configurada"}), 500
-
-    query = f"promessas políticas para {cidade} {uf} obras investimentos"
-    print(f"\n[BUSCA REGIÃO] {cidade}/{uf} -> query: {query}")
-    articles = scrape_all(query)
-    print(f"[TOTAL] {len(articles)} artigos")
-    result = filter_with_ai_region(articles, cidade, uf)
-    return jsonify(result)
 
 @app.route("/api/search", methods=["POST"])
 def api_search():
@@ -671,28 +504,74 @@ def api_search():
 def filter_with_ai(articles: list[dict], tema: str, politician: str) -> dict:
     if not GROQ_API_KEY:
         return {"error": "GROQ_API_KEY não configurada"}
-    contexto = "\n\n".join(f"[{a['site']}] {a['title']}\n{a['summary']}" for a in articles[:12])
-    prompt = f"""Político: {politician}, Tema: {tema}
-Artigos: {contexto}
-Retorne JSON com promessas (campo 'promessas', cada uma com 'promessa','status','justificativa','fonte_titulo','fonte_site','fonte_url') e 'resumo_geral'."""
+    if not articles:
+        return {"error": "Nenhum artigo foi encontrado para essa busca. Tente outro tema."}
+
+    artigos_usados = articles[:12]
+    contexto = "\n\n".join(
+        f"[ARTIGO {i}] Site: {a['site']}\nTítulo: {a['title']}\nResumo: {a['summary']}"
+        for i, a in enumerate(artigos_usados)
+    )
+    prompt = f"""Você é um verificador de promessas políticas. Analise SOMENTE os artigos abaixo sobre {politician} e o tema "{tema}".
+
+{contexto}
+
+REGRAS OBRIGATÓRIAS:
+- Toda promessa que você reportar precisa estar EXPLICITAMENTE mencionada em pelo menos um dos artigos acima. Não invente promessas, datas, números ou declarações que não estejam no texto dos artigos.
+- Para cada promessa, informe o campo "fonte_artigo_id" com o número [ARTIGO N] de onde você tirou a informação (apenas o número inteiro N). Não invente esse número, use somente os que existem acima.
+- Se os artigos não derem informação suficiente para avaliar o cumprimento, use status "não verificada" mesmo assim, mas ainda cite o fonte_artigo_id do artigo que menciona a promessa.
+- Se nenhum artigo mencionar nenhuma promessa relevante ao tema, retorne "promessas": [].
+
+Retorne APENAS um JSON válido, sem texto antes ou depois, no formato:
+{{"promessas": [{{"promessa": "...", "status": "cumprida|parcialmente cumprida|não cumprida|em andamento|não verificada", "justificativa": "...", "fonte_artigo_id": 0}}], "resumo_geral": "..."}}"""
     try:
         resp = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",
             headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
-            json={"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": prompt}], "max_tokens": 2500, "temperature": 0.2},
+            json={"model": "openai/gpt-oss-120b", "messages": [{"role": "user", "content": prompt}], "max_tokens": 2500, "temperature": 0.2},
             timeout=40,
         )
-        raw = resp.json()["choices"][0]["message"]["content"]
+        data = resp.json()
+
+        if not resp.ok or "choices" not in data:
+            msg = data.get("error", {}).get("message", json.dumps(data, ensure_ascii=False))
+            return {"error": f"Groq API ({resp.status_code}): {msg}"}
+
+        raw = data["choices"][0]["message"]["content"]
         raw = re.sub(r"```json|```", "", raw).strip()
         m = re.search(r"\{[\s\S]*\}", raw)
-        return json.loads(m.group()) if m else {"error": "JSON não encontrado"}
+        if not m:
+            return {"error": "JSON não encontrado na resposta da IA"}
+        parsed = json.loads(m.group())
+        promessas_validadas = []
+        for p in parsed.get("promessas", []):
+            fid = p.get("fonte_artigo_id")
+            artigo = None
+            if isinstance(fid, int) and 0 <= fid < len(artigos_usados):
+                artigo = artigos_usados[fid]
+            if artigo and artigo.get("url"):
+                p["fonte_titulo"] = artigo["title"]
+                p["fonte_site"] = artigo["site"]
+                p["fonte_url"] = artigo["url"]
+            else:
+                p["fonte_titulo"] = ""
+                p["fonte_site"] = ""
+                p["fonte_url"] = ""
+                if "verificad" not in (p.get("status") or "").lower():
+                    p["status"] = "não verificada"
+            p.pop("fonte_artigo_id", None)
+            promessas_validadas.append(p)
+        parsed["promessas"] = promessas_validadas
+        return parsed
+    except requests.exceptions.RequestException as e:
+        return {"error": f"Falha de conexão com a Groq: {e}"}
     except Exception as e:
         return {"error": str(e)}
 
 if __name__ == "__main__":
     total_pols = sum(len(v) for v in POLITICIANS.values())
     print("\n" + "="*55)
-    print("  RASTREADOR DE PROMESSAS POLÍTICAS POR CEP")
+    print("  RASTREADOR DE PROMESSAS POLÍTICAS")
     print("  TCC · ETEC Camargo Aranha · 2026")
     print("="*55)
     if not GROQ_API_KEY:
