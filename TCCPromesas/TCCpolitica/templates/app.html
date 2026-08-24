@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mandatos | {{ project_name }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mapc.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/panel.css') }}">
+</head>
+<body class="app-body">
+  <header class="app-header"><a class="brand" href="/">MAPC</a><div class="header-actions"><div class="header-source">Monitoramento contínuo de promessas públicas</div><a class="home-button" href="/">Página inicial</a></div></header>
+  <main class="app-shell">
+    <section class="app-intro"><div><div class="eyebrow">Painel de acompanhamento</div><h1>Escolha um mandato.</h1></div><p>34 perfís Sendo Monitorados Pelo Projeto MAPC</p></section>
+    {% if not has_api_key %}<div class="notice">A pesquisa por IA está pausada. Configure <code>GROQ_API_KEY</code> para ativar as verificações.</div>{% endif %}
+    <div class="toolbar"><div class="tabs" role="tablist">{% for category in ['federal', 'governadores', 'prefeitos'] %}<button class="tab {% if loop.first %}active{% endif %}" data-category="{{ category }}" role="tab">{{ {'federal':'Federal','governadores':'Governadores','prefeitos':'Prefeitos'}[category] }}</button>{% endfor %}</div><label class="search"><span aria-hidden="true">&#9906;</span><input id="politicianSearch" type="search" placeholder="Buscar político" aria-label="Buscar político"></label><button id="syncButton" class="sync-button" type="button">Atualizar Notícias</button></div>
+    <div id="politicianGrid" class="politician-grid"></div>
+    <section id="workspace" class="workspace" hidden>
+      <div class="profile-heading"><div id="profileAvatar" class="profile-avatar"></div><div><div class="eyebrow">Mandato selecionado</div><h2 id="profileName"></h2><p id="profileMeta"></p></div><button id="closeWorkspace" class="icon-button" aria-label="Fechar painel">&#10005;</button></div>
+      <div class="theme-row"><span>Escolha uma categoria de promessas oficiais</span><div id="themeList" class="theme-list"></div></div>
+      <div id="loading" class="loading" hidden><span class="loader"></span><span>Buscando notícias e comparando evidências...</span></div>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+  <script>window.RADAR_DATA = {{ {"politicians": politicians, "themes": themes}|tojson }};</script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
