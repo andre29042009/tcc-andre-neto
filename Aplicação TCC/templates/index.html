@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promessas Políticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+  <main class="landing-shell">
+    <nav class="topbar">
+      <a class="brand" href="/"><span>MAPC</span></a>
+      <span class="edition">TCC · ETEC Camargo Aranha · 2026</span>
+    </nav>
+
+    <section class="landing-hero">
+      <div class="eyebrow">Monitoramento e Análise de Promessas de Campanha</div>
+      <h1>O que foi<br><em>prometido.</em><br>O que mudou.</h1>
+      <p class="hero-copy">Escolha um político e um tema para acompanhar suas promessas de campanha e consultar as evidências encontradas pelo sistema.</p>
+      <a class="primary-action" href="/promessas">Explorar promessas <span aria-hidden="true">&#8594;</span></a>
+    </section>
+
+    <section class="landing-notes">
+      <article>
+        <strong>01</strong>
+        <h2>Notícias em tempo real</h2>
+        <p>O sistema pesquisa notícias relacionadas ao político e ao tema escolhido para encontrar informações que possam servir como evidências.</p>
+      </article>
+
+      <article>
+        <strong>02</strong>
+        <h2>Leitura por tema</h2>
+        <p>Saúde, educação, segurança, infraestrutura e outros temas ficam organizados para facilitar a consulta e a análise das promessas.</p>
+      </article>
+
+      <article>
+        <strong>03</strong>
+        <h2>Contexto, não sentença</h2>
+        <p>A IA analisa as evidências encontradas; a fonte original continua sendo o ponto de partida para sua própria avaliação.</p>
+      </article>
+    </section>
+
+    <footer class="landing-footer">
+      <span>Projeto acadêmico de acompanhamento político</span>
+      <span>Felipe Gusmão · Aquiles Menezes · Heitor Ribeiro · Artur Araujo · Andre Garrido</span>
+    </footer>
+  </main>
+</body>
+</html>

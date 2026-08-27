@@ -1,0 +1,94 @@
+.app-shell{max-width:1180px;margin:0 auto;padding:clamp(40px,7vw,72px) 24px}
+
+.app-intro{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:38px;flex-wrap:wrap}
+.app-intro h1{font:600 clamp(2.2rem,5vw,3.6rem)/1.05 'Space Grotesk',sans-serif;color:#fff;margin-top:12px}
+.app-intro h1 em{color:var(--accent);font-style:normal}
+.app-intro p{color:#d9e1d8;font-size:.9rem;max-width:360px;line-height:1.55}
+
+.notice{padding:13px 16px;margin-bottom:22px;border-left:3px solid var(--accent);background:#fff4d8;color:var(--ink);font-size:.84rem}
+
+.toolbar{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(242,167,27,.45);padding-bottom:13px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{border:0;border-bottom:2px solid transparent;padding:10px 0;margin-right:18px;background:none;color:#d9e1d8;font-weight:600;font-size:.92rem;cursor:pointer}
+.tab.active,.tab:hover{color:var(--accent);border-color:var(--accent)}
+.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.5);color:#fff;padding:7px 0}
+.search input{border:0;outline:0;background:transparent;font:inherit;color:#fff;width:180px}
+.search input::placeholder{color:#d9e1d8}
+
+.politician-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:25px 0 46px}
+.politician-card{border:1px solid transparent;background:#fbfaf6;color:var(--ink);padding:18px;text-align:left;cursor:pointer;transition:.2s transform,.2s border-color}
+.politician-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.politician-card.selected{border-color:var(--accent)}
+.avatar{width:42px;height:42px;display:grid;place-items:center;background:var(--green);color:#fff;font:600 1rem 'Space Grotesk',sans-serif;margin-bottom:20px}
+.politician-card:nth-child(3n) .avatar{background:#c65b3c}
+.politician-card:nth-child(3n+2) .avatar{background:#9b7b42}
+.politician-card h3{font-size:1rem;margin:0 0 6px}
+.politician-card p{color:#68716a;font-size:.78rem;margin:0}
+.card-tags{color:var(--accent);font-size:.7rem;margin-top:16px}
+.empty{padding:35px 0;color:#d9e1d8;font-size:.9rem}
+
+.workspace{border-top:3px solid var(--accent);padding-top:28px;margin-top:6px}
+.profile-heading{display:flex;gap:16px;align-items:center;position:relative;flex-wrap:wrap}
+.profile-avatar{width:58px;height:58px;display:grid;place-items:center;background:var(--green);color:#fff;font:600 1.25rem 'Space Grotesk',sans-serif}
+.profile-heading h2{font:600 1.7rem 'Space Grotesk',sans-serif;margin:5px 0;color:#fff}
+.profile-heading p{color:#d9e1d8;margin:0;font-size:.8rem}
+.icon-button{margin-left:auto;border:0;background:none;font-size:1.2rem;color:#d9e1d8;cursor:pointer}
+
+.theme-row{margin:34px 0 20px}
+.theme-row>span{display:block;margin-bottom:14px;color:#d9e1d8;font-size:.78rem}
+.theme-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.theme-chip{min-height:56px;padding:12px 14px;background:var(--accent);border:2px solid var(--accent);color:var(--ink);
+  font:600 .8rem 'Space Grotesk',sans-serif;text-align:left;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.16)}
+.theme-chip:hover,.theme-chip.active{background:#ffd36b;border-color:#ffd36b;transform:translateY(-2px)}
+
+.promise-search{display:flex;gap:10px;max-width:700px;margin-top:18px}
+.promise-search input{flex:1;border:1px solid #4c5951;background:rgba(255,255,255,.06);color:#fff;padding:12px;font:inherit;outline-color:var(--accent)}
+.promise-search input::placeholder{color:#9ba79f}
+.promise-search button{border:0;background:var(--accent);color:var(--ink);padding:0 20px;font-weight:700;cursor:pointer}
+.promise-search button:disabled{opacity:.55;cursor:default}
+
+.loading{display:flex;align-items:center;gap:10px;margin:28px 0;color:#fff;font-size:.85rem}
+.loader{width:15px;height:15px;border:2px solid rgba(242,167,27,.4);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.results{margin-top:30px}
+.results-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(242,167,27,.35);padding-bottom:14px}
+.results-header h3{margin:0;font:600 1.25rem 'Space Grotesk',sans-serif;color:#fff}
+.results-header p{font-size:.75rem;color:#d9e1d8}
+.summary{margin:18px 0;padding:15px 17px;background:#e7efe7;color:var(--ink);line-height:1.5;font-size:.87rem}
+.stats{display:flex;gap:25px;flex-wrap:wrap;margin:20px 0}
+.stat strong{font:600 1.5rem 'Space Grotesk',sans-serif;display:block;color:var(--accent)}
+.stat span{font-size:.7rem;color:#d9e1d8}
+
+.promise-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.promise-card{border:1px solid rgba(242,167,27,.55);background:#fff;color:var(--ink);padding:18px;cursor:pointer;transition:.2s border-color}
+.promise-card:hover{border-color:var(--accent)}
+.promise-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.promise-top h4{margin:0;font-size:.94rem;line-height:1.4}
+.status{font-size:.65rem;padding:5px 7px;white-space:nowrap;font-weight:600}
+.status-cumprida{background:#dfeedd;color:#32633b}
+.status-parcialmente{background:#f8ebc9;color:#80601e}
+.status-nao{background:#fae0dc;color:#9b4034}
+.status-andamento{background:#dcecf0;color:#316b79}
+.status-verificada{background:#e8e8e2;color:#70756d}
+.promise-area{color:var(--accent);font-size:.68rem;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.08em}
+.promise-hint{color:#777b74;font-size:.75rem}
+
+.detail-panel{position:fixed;inset:0;background:rgba(24,33,31,.6);display:grid;place-items:center;padding:20px;z-index:10}
+.detail-content{max-width:620px;width:100%;max-height:90vh;overflow:auto;background:#fbfaf6;color:var(--ink);padding:30px;position:relative}
+.detail-content .icon-button{color:var(--ink);position:absolute;top:18px;right:18px;font-size:1.1rem}
+.detail-content h3{font:600 1.5rem 'Space Grotesk',sans-serif;margin:8px 40px 20px 0}
+.detail-content p{line-height:1.6;color:#535c55;font-size:.92rem}
+.detail-source{border-top:1px solid #ddd9ce;padding-top:16px;margin-top:22px;font-size:.78rem;color:#535c55}
+.detail-source a{color:#185FA5}
+
+.error-box{background:#fae0dc;border:1px solid #f09595;border-radius:4px;padding:1rem;color:#9b4034}
+
+@media(max-width:700px){
+  .app-intro{display:block}
+  .app-intro p{margin-top:14px;max-width:none}
+  .search{margin-top:12px}
+  .promise-search{display:block}
+  .promise-search input,.promise-search button{width:100%;padding:12px;margin-bottom:8px}
+  .stats{gap:15px}
+}
