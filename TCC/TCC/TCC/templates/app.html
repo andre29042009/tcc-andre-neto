@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cumpriu ou Não? | Promessas Políticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+<header class="app-header">
+  <a class="brand" href="/"><span>Cumpriu ou Não?</span></a>
+  <div class="header-actions">
+    <div class="header-source">TCC · ETEC Camargo Aranha · 2026</div>
+    <a class="home-button" href="/">Página inicial</a>
+  </div>
+</header>
+
+<main class="app-shell">
+  <section class="app-intro">
+    <div>
+      <div class="eyebrow">Painel de acompanhamento</div>
+      <h1>Escolha um <em>político</em>.</h1>
+    </div>
+    <p>Ao selecionar um político, o sistema realiza uma varredura automática nos Planos de Governo oficiais do TSE e notícias da imprensa.</p>
+    <p class="verif-note">Verificação das fontes: para confirmar um status, o sistema exige fonte oficial, checagem profissional ou pelo menos dois veículos independentes. Uma única matéria não derruba o político.</p>
+  </section>
+
+  {% if not api_key %}
+  <div class="notice">⚠ <strong>GEMINI_API_KEY não encontrada.</strong> Configure a variável de ambiente e reinicie o servidor.</div>
+  {% endif %}
+
+  <div class="toolbar">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-cat="federal" type="button">Federal</button>
+      <button class="tab" data-cat="governadores" type="button">Governadores</button>
+      <button class="tab" data-cat="prefeitos" type="button">Prefeitos</button>
+    </div>
+    <label class="search"><span aria-hidden="true">&#9906;</span>
+      <input id="quickSearch" type="search" placeholder="Buscar político" aria-label="Buscar político">
+    </label>
+  </div>
+
+  <div id="politicianGrid" class="politician-grid"></div>
+
+  <section id="workspace" class="workspace" hidden>
+    <div class="profile-heading">
+      <div id="panelAvatar" class="profile-avatar"></div>
+      <div>
+        <div class="eyebrow">Mandato selecionado</div>
+        <h2 id="panelName"></h2>
+        <p id="panelInfo"></p>
+      </div>
+      <button id="closeWorkspace" class="icon-button" aria-label="Fechar painel">&#10005;</button>
+    </div>
+
+    <div class="promise-search">
+      <button id="btnBuscar" type="button">Buscar novas propostas / atualizar andamento</button>
+    </div>
+
+    <div id="loading" class="loading" hidden>
+      <span class="loader"></span>
+      <span>Coletando notícias e planos de governo e analisando com IA...</span>
+    </div>
+
+    <div id="results" class="results"></div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  Felipe Gusmão · Aquiles Menezes · Heitor Ribeiro · Artur Araujo · Andre Garrido<br>
+  <small>Fotos: Wikipédia e Wikimedia Commons (licenças livres; créditos no popup de cada proposta).</small>
+</footer>
+
+<!-- Popup / Modal -->
+<div id="propostaModal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <button class="icon-button close-btn" onclick="fecharModal()" aria-label="Fechar">&#10005;</button>
+    <div class="modal-hero">
+      <div id="modalHeroBg" class="modal-hero-bg"></div>
+      <span id="modalCityLabel" class="modal-city"></span>
+      <div id="modalCityImg" class="modal-city-img" title="Cidade do mandato"></div>
+    </div>
+    <div class="modal-inner">
+      <div class="modal-who">
+        <div id="modalAvatar" class="avatar modal-avatar"></div>
+        <div class="eyebrow" id="modalCandidato">Nome do Candidato</div>
+      </div>
+      <h3 id="modalTituloProposta">Título da Proposta</h3>
+      <p id="modalDescricao">Descrição detalhada...</p>
+      <p id="modalMotivo" class="modal-motivo" style="display:none"></p>
+      <div class="modal-footer">
+        <span id="modalStatus" class="status-badge"></span>
+        <a id="modalFonte" href="#" target="_blank">Acessar Fonte Original &#8599;</a>
+      </div>
+      <div id="modalVerificacao" class="verificacao-box" style="display:none">
+        <div class="verificacao-head">
+          <strong>Verificação das fontes</strong>
+          <span id="modalVerifBadge" class="verif"></span>
+        </div>
+        <p id="modalVerifMotivo"></p>
+        <p id="modalVerifPlano" class="modal-plano"></p>
+        <ul id="modalVerifFontes" class="verif-fontes"></ul>
+      </div>
+      <p id="modalCreditos" class="modal-creditos"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.APP_DATA = {"politicians": {{ politicians_json|safe }}};</script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
