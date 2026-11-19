@@ -1,0 +1,87 @@
+2026-11-18 20:37:05,137 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:05,149 [WARNING] google_genai.models: Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+2026-11-18 20:37:05,511 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:08,328 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:08,563 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:12,748 [WARNING] app: Não foi possível buscar plano de governo de Arthur Lira: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:37:14,798 [INFO] app: Coleta de Arthur Lira: 250 resultados brutos, 234 únicos
+2026-11-18 20:37:15,230 [INFO] app: Artigos de Arthur Lira: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:37:15,260 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:16,235 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:37:16,237 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1766 saída=105 total=1871
+2026-11-18 20:37:16,728 [INFO] app: Verificação de Arthur Lira: {'oficial': 1}
+2026-11-18 20:37:16,739 [INFO] app: Verificação de Arthur Lira: {'oficial': 1}
+2026-11-18 20:37:18,994 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:19,323 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:21,453 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:21,674 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:26,110 [WARNING] app: Não foi possível buscar plano de governo de Fernando Haddad: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:37:28,611 [INFO] app: Coleta de Fernando Haddad: 384 resultados brutos, 344 únicos
+2026-11-18 20:37:29,065 [INFO] app: Artigos de Fernando Haddad: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:37:29,098 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:30,233 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:37:30,235 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1762 saída=93 total=1855
+2026-11-18 20:37:30,747 [INFO] app: Verificação de Fernando Haddad: {'oficial': 1}
+2026-11-18 20:37:30,759 [INFO] app: Verificação de Fernando Haddad: {'oficial': 1}
+2026-11-18 20:37:33,010 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:33,316 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:36,265 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:36,509 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:41,507 [WARNING] app: Não foi possível buscar plano de governo de Geraldo Alckmin: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:37:43,408 [INFO] app: Coleta de Geraldo Alckmin: 344 resultados brutos, 309 únicos
+2026-11-18 20:37:43,933 [INFO] app: Artigos de Geraldo Alckmin: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:37:43,959 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:45,391 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:37:45,393 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1732 saída=184 total=1916
+2026-11-18 20:37:45,992 [INFO] app: Verificação de Geraldo Alckmin: {'sem_evidencia': 1, 'oficial': 1}
+2026-11-18 20:37:46,015 [INFO] app: Verificação de Geraldo Alckmin: {'sem_evidencia': 1, 'oficial': 1}
+2026-11-18 20:37:50,387 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:51,110 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:53,462 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:37:53,707 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:37:57,924 [WARNING] app: Não foi possível buscar plano de governo de Rodrigo Pacheco: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:38:00,009 [INFO] app: Coleta de Rodrigo Pacheco: 345 resultados brutos, 308 únicos
+2026-11-18 20:38:00,542 [INFO] app: Artigos de Rodrigo Pacheco: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:38:00,570 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:01,641 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:38:01,643 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1689 saída=103 total=1792
+2026-11-18 20:38:02,165 [INFO] app: Verificação de Rodrigo Pacheco: {'modo_critico': 1}
+2026-11-18 20:38:02,178 [INFO] app: Verificação de Rodrigo Pacheco: {'modo_critico': 1}
+2026-11-18 20:38:04,562 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:04,896 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:07,500 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:07,725 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:11,965 [WARNING] app: Não foi possível buscar plano de governo de Simone Tebet: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:38:13,792 [INFO] app: Coleta de Simone Tebet: 283 resultados brutos, 243 únicos
+2026-11-18 20:38:14,310 [INFO] app: Artigos de Simone Tebet: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:38:14,338 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:16,714 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:38:16,716 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1673 saída=340 total=2013
+2026-11-18 20:38:17,350 [INFO] app: Verificação de Simone Tebet: {'modo_critico': 3, 'oficial': 1}
+2026-11-18 20:38:17,362 [INFO] app: Verificação de Simone Tebet: {'modo_critico': 3, 'oficial': 1}
+2026-11-18 20:38:19,913 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:20,236 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:22,256 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:22,494 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:26,580 [WARNING] app: Não foi possível buscar plano de governo de Antonio Denarium: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:38:28,213 [INFO] app: Coleta de Antonio Denarium: 190 resultados brutos, 113 únicos
+2026-11-18 20:38:28,693 [INFO] app: Artigos de Antonio Denarium: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:38:28,715 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:29,708 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:38:29,710 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1634 saída=24 total=1658
+2026-11-18 20:38:32,145 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:33,205 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:35,384 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:35,740 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:40,094 [WARNING] app: Não foi possível buscar plano de governo de Carlos Brandão: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://aistudio.google.com/docs/rate-limits'}]}]}}
+2026-11-18 20:38:42,066 [INFO] app: Coleta de Carlos Brandão: 197 resultados brutos, 172 únicos
+2026-11-18 20:38:42,560 [INFO] app: Artigos de Carlos Brandão: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:38:42,593 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:43,962 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:38:43,964 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1639 saída=96 total=1735
+2026-11-18 20:38:44,531 [INFO] app: Verificação de Carlos Brandão: {'oficial': 1}
+2026-11-18 20:38:44,545 [INFO] app: Verificação de Carlos Brandão: {'oficial': 1}
+2026-11-18 20:38:46,745 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:47,199 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-11-18 20:38:50,185 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:38:50,496 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"

@@ -1,0 +1,149 @@
+.app-shell{max-width:1180px;margin:0 auto;padding:clamp(40px,7vw,72px) 24px}
+
+.app-intro{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:38px;flex-wrap:wrap}
+.app-intro h1{font:600 clamp(2.2rem,5vw,3.6rem)/1.05 'Space Grotesk',sans-serif;color:#fff;margin-top:12px}
+.app-intro h1 em{color:var(--accent);font-style:normal}
+.app-intro p{color:#d9e1d8;font-size:.9rem;max-width:360px;line-height:1.55}
+.app-intro .verif-note{font-size:.74rem;color:#b9c6be;border-left:2px solid var(--accent);padding-left:10px;margin-top:10px;max-width:430px}
+
+.notice{padding:13px 16px;margin-bottom:22px;border-left:3px solid var(--accent);background:#fff4d8;color:var(--ink);font-size:.84rem}
+
+.toolbar{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(242,167,27,.45);padding-bottom:13px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{border:0;border-bottom:2px solid transparent;padding:10px 0;margin-right:18px;background:none;color:#d9e1d8;font-weight:600;font-size:.92rem;cursor:pointer}
+.tab.active,.tab:hover{color:var(--accent);border-color:var(--accent)}
+.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.5);color:#fff;padding:7px 0}
+.search input{border:0;outline:0;background:transparent;font:inherit;color:#fff;width:180px}
+.search input::placeholder{color:#d9e1d8}
+
+.politician-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:25px 0 46px}
+.politician-card{border:1px solid transparent;background:#fbfaf6;color:var(--ink);padding:18px;text-align:left;cursor:pointer;transition:.2s transform,.2s border-color}
+.politician-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.politician-card.selected{border-color:var(--accent)}
+.avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:var(--green);color:#fff;font:600 1.15rem 'Space Grotesk',sans-serif;margin-bottom:16px;flex:none;border:2px solid rgba(242,167,27,.55)}
+.avatar img,.profile-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.politician-card:nth-child(3n) .avatar{background:#c65b3c}
+.politician-card:nth-child(3n+2) .avatar{background:#9b7b42}
+.politician-card h3{font-size:1rem;margin:0 0 6px}
+.politician-card p{color:#68716a;font-size:.78rem;margin:0}
+.card-tags{color:var(--accent);font-size:.7rem;margin-top:16px}
+.empty{padding:35px 0;color:#d9e1d8;font-size:.9rem}
+
+.workspace{border-top:3px solid var(--accent);padding-top:28px;margin-top:6px}
+.profile-heading{display:flex;gap:16px;align-items:center;position:relative;flex-wrap:wrap}
+.profile-avatar{width:84px;height:84px;border-radius:50%;overflow:hidden;border:3px solid var(--accent);display:grid;place-items:center;flex:none;background:var(--green);color:#fff;font:600 1.25rem 'Space Grotesk',sans-serif}
+.profile-heading h2{font:600 1.7rem 'Space Grotesk',sans-serif;margin:5px 0;color:#fff}
+.profile-heading p{color:#d9e1d8;margin:0;font-size:.8rem}
+.icon-button{margin-left:auto;border:0;background:none;font-size:1.2rem;color:#d9e1d8;cursor:pointer}
+
+.promise-search{display:flex;margin-top:28px}
+.promise-search button{flex:1;border:0;background:var(--accent);color:var(--ink);padding:16px;font:700 1.05rem 'Space Grotesk',sans-serif;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.promise-search button:hover{background:#ffd36b}
+.promise-search button:disabled{opacity:.55;cursor:default}
+
+.loading{display:flex;align-items:center;gap:10px;margin:28px 0;color:#fff;font-size:.85rem}
+.loader{width:15px;height:15px;border:2px solid rgba(242,167,27,.4);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.results{margin-top:40px}
+.results-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(242,167,27,.35);padding-bottom:14px;margin-bottom:30px}
+.results-header h3{margin:0;font:600 1.25rem 'Space Grotesk',sans-serif;color:#fff}
+.results-header p{font-size:.75rem;color:#d9e1d8}
+.summary{margin:18px 0;padding:15px 17px;background:#e7efe7;color:var(--ink);line-height:1.5;font-size:.87rem;border-radius:4px}
+
+/* Quadrados Individuais das Propostas */
+.tema-bloco{margin-bottom:45px}
+.tema-bloco h3{font:600 1.15rem 'Space Grotesk',sans-serif;color:var(--accent);border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;margin-bottom:20px}
+.propostas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px}
+.proposta-quadrado{background:#fbfaf6;border:1px solid rgba(242,167,27,0.4);padding:0;overflow:hidden;border-radius:6px;color:var(--ink);cursor:pointer;transition:transform 0.2s,border-color 0.2s;display:flex;flex-direction:column;justify-content:space-between;min-height:130px}
+.proposta-quadrado:hover{transform:translateY(-4px);border-color:var(--accent)}
+.proposta-quadrado h4{margin:0 0 12px;font-size:.9rem;line-height:1.4;font-weight:600}
+
+.status{font-size:.65rem;padding:5px 7px;white-space:nowrap;font-weight:600;display:inline-block;width:fit-content;border-radius:3px}
+.status-cumprida{background:#dfeedd;color:#32633b}
+.status-parcialmente{background:#f8ebc9;color:#80601e}
+.status-nao{background:#fae0dc;color:#9b4034}
+.status-andamento{background:#dcecf0;color:#316b79}
+.status-verificada{background:#e8e8e2;color:#70756d}
+.card-badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.verif{font-size:.6rem;padding:4px 6px;border-radius:3px;font-weight:700;white-space:nowrap;display:inline-block;width:fit-content}
+.verif-boa{background:#dff3e8;color:#1d6b45}
+.verif-media{background:#fff4d6;color:#8a5a00}
+.verif-alerta{background:#ffe3d6;color:#9a3b1a}
+.verif-neutra{background:#e9ecef;color:#5a6460}
+.verificacao-box{margin-top:14px;padding:12px 14px;background:#f6f6f1;border-left:3px solid #c8a94b;border-radius:4px}
+.verificacao-head{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:6px}
+.verificacao-box p{margin:4px 0;font-size:.8rem;line-height:1.45;color:#4b5a55}
+.modal-plano{font-weight:600}
+.verif-fontes{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.verif-fontes li{font-size:.76rem;display:flex;align-items:center;gap:6px}
+.verif-fontes a{color:#316b79;text-decoration:none}
+.tier{font-size:.58rem;font-weight:700;padding:2px 5px;border-radius:2px;background:#e2e4df;color:#4b5a55;white-space:nowrap}
+.tier-1{background:#dff3e8;color:#1d6b45}
+.tier-2{background:#e0eefc;color:#245b8a}
+.tier-3{background:#e8e8e2;color:#4b5a55}
+.tier-4{background:#fdebd3;color:#8a5a00}
+.tier-5{background:#fae0dc;color:#9b4034}
+
+/* Modal Popup */
+.modal-overlay{position:fixed;inset:0;background:rgba(24,33,31,0.8);display:flex;justify-content:center;align-items:center;z-index:1000;padding:20px}
+.modal-content{background:#fbfaf6;color:var(--ink);padding:0;overflow:hidden;border-radius:8px;max-width:600px;width:100%;position:relative;max-height:92vh;overflow-y:auto}
+.close-btn{position:absolute;top:15px;right:15px;color:var(--ink);font-size:1.4rem}
+.modal-content h3{font:600 1.4rem 'Space Grotesk',sans-serif;margin:10px 0 20px}
+.modal-content p{line-height:1.6;color:#535c55;font-size:.95rem}
+.modal-footer{margin-top:25px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ddd9ce;padding-top:20px}
+.modal-footer a{color:#185FA5;font-size:.85rem;font-weight:600;text-decoration:none}
+.modal-footer a:hover{text-decoration:underline}
+
+.error-box{background:#fae0dc;border:1px solid #f09595;border-radius:4px;padding:1rem;color:#9b4034;margin-top:20px}
+
+@media(max-width:700px){
+  .app-intro{display:block}
+  .app-intro p{margin-top:14px;max-width:none}
+  .search{margin-top:12px}
+  .modal-footer{flex-direction:column;align-items:flex-start;gap:15px}
+}
+/* Filtros por status, contadores e avisos de atualização */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.chip{background:transparent;color:#d9e1d8;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font:500 .78rem 'DM Sans',sans-serif;cursor:pointer;transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--accent)}
+.chip.active{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.tema-bloco h3 small{font-weight:500;opacity:.7;font-size:.8rem}
+.results-delta{margin-top:6px;font-size:.82rem;color:var(--accent)}
+.proposta-quadrado .origem{display:inline-block;margin:-4px 0 10px;font-size:.68rem;font-weight:600;color:#7a5600;background:rgba(242,167,27,.22);padding:2px 8px;border-radius:999px;align-self:flex-start}
+.modal-content .modal-motivo{margin:10px 0 0;font-size:.82rem;line-height:1.45;color:#4b5a55;font-style:italic}
+
+/* ---- Imagens: miniaturas das propostas ---- */
+.proposta-thumb{position:relative;height:112px;background:#26312e center/cover no-repeat}
+.proposta-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 60%)}
+.thumb-emoji{font-size:2.1rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));transition:opacity .4s;position:relative;z-index:1}
+.proposta-thumb.loaded .thumb-emoji{opacity:0}
+.proposta-body{padding:14px 16px 16px;display:flex;flex-direction:column;justify-content:space-between;flex:1}
+.proposta-quadrado{min-height:210px}
+
+/* ---- Modal com banner ---- */
+.modal-hero{position:relative;height:190px}
+.modal-hero-bg{position:absolute;inset:0;background:#26312e center/cover no-repeat}
+.modal-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.05) 65%)}
+.modal-city{position:absolute;left:22px;bottom:14px;z-index:2;color:#fff;font:600 .95rem 'Space Grotesk',sans-serif;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.modal-city-img{position:absolute;right:22px;bottom:-34px;z-index:3;width:88px;height:88px;border-radius:14px;border:4px solid #fbfaf6;overflow:hidden;background:#26312e center/cover no-repeat;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.modal-inner{padding:26px 35px 30px}
+.modal-who{display:flex;align-items:center;gap:12px;padding-right:100px}
+.modal-avatar{width:46px;height:46px;font-size:.9rem;margin:0}
+.modal-content .close-btn{z-index:5;background:rgba(255,255,255,.9);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;top:12px;right:12px}
+.modal-content .modal-creditos{margin:16px 0 0;font-size:.68rem;line-height:1.4;color:#7b847d}
+.modal-content .modal-creditos a{color:#7b847d;text-decoration:none}
+.modal-content .modal-creditos a:hover{text-decoration:underline}
+@media (max-width:600px){.modal-inner{padding:24px 22px}.modal-who{padding-right:0;margin-top:18px}.modal-hero{height:150px}.modal-city-img{width:70px;height:70px;bottom:-26px}}
+
+
+/* O atributo hidden precisa vencer regras como .loading{display:flex} (o spinner ficava sempre visível) */
+[hidden]{display:none !important}
+
+/* Carregamento: esqueleto animado. Sem imagem específica: fundo temático com a marca, nunca card vazio. */
+@keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.skeleton{background:linear-gradient(90deg,#26312e 25%,#34433f 37%,#26312e 63%) !important;background-size:300% 100% !important;animation:shimmer 1.4s ease-in-out infinite}
+.proposta-thumb.sem-imagem{display:block;background:radial-gradient(circle at 18% 20%,rgba(240,180,41,.28),transparent 42%),linear-gradient(135deg,#2a3834,#1b2522)}
+.proposta-thumb.sem-imagem::before{content:"MAPC";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 11px/1 'Space Grotesk',sans-serif;letter-spacing:.2em;color:rgba(255,255,255,.32)}
+.proposta-thumb::after{background:linear-gradient(to top,rgba(0,0,0,.22),transparent 55%)}
+

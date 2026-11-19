@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+# imagens baixadas automaticamente (podem ser apagadas; são baixadas de novo quando necessário)
+static/cache/*
+!static/cache/.gitkeep

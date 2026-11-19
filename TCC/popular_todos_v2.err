@@ -1,0 +1,315 @@
+2026-11-18 20:39:53,544 [INFO] app: Coleta de Arthur Lira: 206 resultados brutos, 194 únicos
+2026-11-18 20:39:53,769 [INFO] app: Artigos de Arthur Lira: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:39:53,948 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:39:53,951 [WARNING] google_genai.models: Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+2026-11-18 20:39:55,006 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:39:55,009 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1781 saída=105 total=1886
+2026-11-18 20:39:55,600 [INFO] app: Verificação de Arthur Lira: {'oficial': 5, 'modo_critico': 8}
+2026-11-18 20:39:59,061 [INFO] app: Coleta de Fernando Haddad: 383 resultados brutos, 343 únicos
+2026-11-18 20:39:59,250 [INFO] app: Artigos de Fernando Haddad: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:39:59,284 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:00,511 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:00,512 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1757 saída=257 total=2014
+2026-11-18 20:40:01,064 [INFO] app: Verificação de Fernando Haddad: {'modo_critico': 9, 'oficial': 2, 'corroborada': 1, 'sem_evidencia': 1}
+2026-11-18 20:40:04,872 [INFO] app: Coleta de Geraldo Alckmin: 344 resultados brutos, 309 únicos
+2026-11-18 20:40:05,129 [INFO] app: Artigos de Geraldo Alckmin: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:05,156 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:06,582 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:06,584 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1848 saída=364 total=2212
+2026-11-18 20:40:07,172 [INFO] app: Verificação de Geraldo Alckmin: {'sem_evidencia': 1, 'oficial': 5, 'fonte_unica': 1, 'modo_critico': 9}
+2026-11-18 20:40:11,827 [INFO] app: Coleta de Rodrigo Pacheco: 345 resultados brutos, 309 únicos
+2026-11-18 20:40:12,044 [INFO] app: Artigos de Rodrigo Pacheco: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:12,073 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:13,229 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:13,231 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1771 saída=193 total=1964
+2026-11-18 20:40:13,829 [INFO] app: Verificação de Rodrigo Pacheco: {'modo_critico': 4, 'oficial': 4}
+2026-11-18 20:40:17,383 [INFO] app: Coleta de Simone Tebet: 283 resultados brutos, 244 únicos
+2026-11-18 20:40:17,578 [INFO] app: Artigos de Simone Tebet: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:17,604 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:20,319 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:20,322 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1788 saída=498 total=2286
+2026-11-18 20:40:20,921 [INFO] app: Verificação de Simone Tebet: {'modo_critico': 3, 'oficial': 6}
+2026-11-18 20:40:24,231 [INFO] app: Coleta de Antonio Denarium: 190 resultados brutos, 113 únicos
+2026-11-18 20:40:24,324 [INFO] app: Artigos de Antonio Denarium: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:29,566 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:30,746 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:30,755 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1842 saída=112 total=1954
+2026-11-18 20:40:31,337 [INFO] app: Verificação de Antonio Denarium: {'oficial': 7, 'modo_critico': 6}
+2026-11-18 20:40:34,987 [INFO] app: Coleta de Carlos Brandão: 198 resultados brutos, 173 únicos
+2026-11-18 20:40:35,121 [INFO] app: Artigos de Carlos Brandão: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:35,153 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:36,362 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:36,364 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1679 saída=105 total=1784
+2026-11-18 20:40:36,940 [INFO] app: Verificação de Carlos Brandão: {'oficial': 4, 'modo_critico': 10}
+2026-11-18 20:40:40,637 [INFO] app: Coleta de Cláudio Castro: 231 resultados brutos, 195 únicos
+2026-11-18 20:40:41,285 [INFO] app: Artigos de Cláudio Castro: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:40:41,312 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:42,250 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:42,251 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1700 saída=93 total=1793
+2026-11-18 20:40:42,792 [INFO] app: Verificação de Cláudio Castro: {'modo_critico': 8, 'oficial': 5}
+2026-11-18 20:40:46,647 [INFO] app: Coleta de Clécio Luís: 198 resultados brutos, 171 únicos
+2026-11-18 20:40:47,185 [INFO] app: Artigos de Clécio Luís: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:40:47,214 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:48,950 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:48,952 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1658 saída=192 total=1850
+2026-11-18 20:40:49,501 [INFO] app: Verificação de Clécio Luís: {'oficial': 8, 'modo_critico': 6}
+2026-11-18 20:40:53,530 [INFO] app: Coleta de Eduardo Leite: 263 resultados brutos, 228 únicos
+2026-11-18 20:40:54,219 [INFO] app: Artigos de Eduardo Leite: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:40:54,246 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:40:55,786 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:40:55,788 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1666 saída=196 total=1862
+2026-11-18 20:40:56,326 [INFO] app: Verificação de Eduardo Leite: {'modo_critico': 11, 'oficial': 3}
+2026-11-18 20:41:00,421 [INFO] app: Coleta de Eduardo Riedel: 238 resultados brutos, 209 únicos
+2026-11-18 20:41:01,096 [INFO] app: Artigos de Eduardo Riedel: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:01,547 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:02,564 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:02,566 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1828 saída=125 total=1953
+2026-11-18 20:41:03,106 [INFO] app: Verificação de Eduardo Riedel: {'oficial': 7, 'modo_critico': 6}
+2026-11-18 20:41:07,103 [INFO] app: Coleta de Elmano de Freitas: 202 resultados brutos, 166 únicos
+2026-11-18 20:41:07,898 [INFO] app: Artigos de Elmano de Freitas: 36 lidos, 12 aproveitados, 2 descartados
+2026-11-18 20:41:08,329 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:10,563 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:10,565 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1998 saída=524 total=2522
+2026-11-18 20:41:11,021 [INFO] app: Verificação de Elmano de Freitas: {'oficial': 5}
+2026-11-18 20:41:14,589 [INFO] app: Coleta de Fábio Mitidieri: 199 resultados brutos, 131 únicos
+2026-11-18 20:41:15,198 [INFO] app: Artigos de Fábio Mitidieri: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:19,916 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:22,191 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-11-18 20:41:24,565 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:26,441 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:26,443 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=2517 saída=652 total=3169
+2026-11-18 20:41:26,921 [INFO] app: Verificação de Fábio Mitidieri: {'oficial': 6}
+2026-11-18 20:41:30,507 [INFO] app: Coleta de Fátima Bezerra: 249 resultados brutos, 195 únicos
+2026-11-18 20:41:31,041 [INFO] app: Artigos de Fátima Bezerra: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:31,069 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:32,433 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:32,435 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1714 saída=202 total=1916
+2026-11-18 20:41:32,941 [INFO] app: Verificação de Fátima Bezerra: {'oficial': 6, 'modo_critico': 8}
+2026-11-18 20:41:36,984 [INFO] app: Coleta de Gladson Cameli: 191 resultados brutos, 166 únicos
+2026-11-18 20:41:37,598 [INFO] app: Artigos de Gladson Cameli: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:37,626 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:38,666 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:38,668 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1682 saída=98 total=1780
+2026-11-18 20:41:39,226 [INFO] app: Verificação de Gladson Cameli: {'oficial': 2, 'modo_critico': 11}
+2026-11-18 20:41:43,718 [INFO] app: Coleta de Helder Barbalho: 236 resultados brutos, 214 únicos
+2026-11-18 20:41:44,291 [INFO] app: Artigos de Helder Barbalho: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:44,321 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:45,673 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:45,675 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1672 saída=254 total=1926
+2026-11-18 20:41:46,230 [INFO] app: Verificação de Helder Barbalho: {'oficial': 4, 'modo_critico': 8}
+2026-11-18 20:41:50,093 [INFO] app: Coleta de Ibaneis Rocha: 243 resultados brutos, 217 únicos
+2026-11-18 20:41:50,681 [INFO] app: Artigos de Ibaneis Rocha: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:50,710 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:51,961 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:51,963 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1647 saída=205 total=1852
+2026-11-18 20:41:52,520 [INFO] app: Verificação de Ibaneis Rocha: {'modo_critico': 12, 'oficial': 2}
+2026-11-18 20:41:56,667 [INFO] app: Coleta de Jerônimo Rodrigues: 367 resultados brutos, 274 únicos
+2026-11-18 20:41:57,333 [INFO] app: Artigos de Jerônimo Rodrigues: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:41:57,360 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:41:58,390 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:41:58,393 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1698 saída=103 total=1801
+2026-11-18 20:41:58,896 [INFO] app: Verificação de Jerônimo Rodrigues: {'modo_critico': 9, 'oficial': 4}
+2026-11-18 20:42:03,088 [INFO] app: Coleta de Jorginho Mello: 280 resultados brutos, 241 únicos
+2026-11-18 20:42:03,674 [INFO] app: Artigos de Jorginho Mello: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:03,701 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:04,859 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:04,860 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1674 saída=229 total=1903
+2026-11-18 20:42:05,372 [INFO] app: Verificação de Jorginho Mello: {'oficial': 5, 'modo_critico': 10}
+2026-11-18 20:42:09,764 [INFO] app: Coleta de João Azevêdo: 208 resultados brutos, 188 únicos
+2026-11-18 20:42:10,386 [INFO] app: Artigos de João Azevêdo: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:10,410 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:11,130 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:11,131 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1701 saída=24 total=1725
+2026-11-18 20:42:11,517 [INFO] app: Verificação de João Azevêdo: {'oficial': 4, 'modo_critico': 8}
+2026-11-18 20:42:15,564 [INFO] app: Coleta de Marcos Rocha: 212 resultados brutos, 184 únicos
+2026-11-18 20:42:16,164 [INFO] app: Artigos de Marcos Rocha: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:16,190 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:16,981 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:16,982 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1654 saída=24 total=1678
+2026-11-18 20:42:17,372 [INFO] app: Verificação de Marcos Rocha: {'oficial': 5, 'modo_critico': 5}
+2026-11-18 20:42:22,265 [INFO] app: Coleta de Paulo Dantas: 212 resultados brutos, 174 únicos
+2026-11-18 20:42:22,911 [INFO] app: Artigos de Paulo Dantas: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:23,118 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:24,775 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:24,776 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1710 saída=107 total=1817
+2026-11-18 20:42:25,291 [INFO] app: Verificação de Paulo Dantas: {'oficial': 4, 'modo_critico': 9}
+2026-11-18 20:42:30,654 [INFO] app: Coleta de Raquel Lyra: 243 resultados brutos, 194 únicos
+2026-11-18 20:42:31,520 [INFO] app: Artigos de Raquel Lyra: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:34,032 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:35,541 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:35,543 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=2059 saída=326 total=2385
+2026-11-18 20:42:36,107 [INFO] app: Verificação de Raquel Lyra: {'oficial': 10, 'modo_critico': 5}
+2026-11-18 20:42:41,093 [INFO] app: Coleta de Ratinho Junior: 274 resultados brutos, 224 únicos
+2026-11-18 20:42:41,704 [INFO] app: Artigos de Ratinho Junior: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:42,885 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:44,220 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:44,224 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=2048 saída=223 total=2271
+2026-11-18 20:42:44,864 [INFO] app: Verificação de Ratinho Junior: {'oficial': 7, 'modo_critico': 7}
+2026-11-18 20:42:49,408 [INFO] app: Coleta de Renato Casagrande: 210 resultados brutos, 184 únicos
+2026-11-18 20:42:50,020 [INFO] app: Artigos de Renato Casagrande: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:50,052 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:42:51,854 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:42:51,857 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1676 saída=99 total=1775
+2026-11-18 20:42:52,360 [INFO] app: Verificação de Renato Casagrande: {'modo_critico': 13}
+2026-11-18 20:42:57,917 [INFO] app: Coleta de Ronaldo Caiado: 203 resultados brutos, 182 únicos
+2026-11-18 20:42:58,557 [INFO] app: Artigos de Ronaldo Caiado: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:42:58,585 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:00,811 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:00,812 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1752 saída=245 total=1997
+2026-11-18 20:43:01,386 [INFO] app: Verificação de Ronaldo Caiado: {'modo_critico': 11, 'oficial': 4}
+2026-11-18 20:43:08,186 [INFO] app: Coleta de Wilson Lima: 212 resultados brutos, 188 únicos
+2026-11-18 20:43:09,041 [INFO] app: Artigos de Wilson Lima: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:43:09,068 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:10,270 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:10,273 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1679 saída=102 total=1781
+2026-11-18 20:43:10,786 [INFO] app: Verificação de Wilson Lima: {'modo_critico': 4, 'oficial': 3, 'fonte_baixa': 1}
+2026-11-18 20:43:14,646 [INFO] app: Coleta de Abilio Brunini: 256 resultados brutos, 206 únicos
+2026-11-18 20:43:15,282 [INFO] app: Artigos de Abilio Brunini: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:43:15,309 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:17,543 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:17,545 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1848 saída=347 total=2195
+2026-11-18 20:43:18,134 [INFO] app: Verificação de Abilio Brunini: {'oficial': 7, 'modo_critico': 9}
+2026-11-18 20:43:22,729 [INFO] app: Coleta de Adriane Lopes: 200 resultados brutos, 178 únicos
+2026-11-18 20:43:23,364 [INFO] app: Artigos de Adriane Lopes: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:43:24,419 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:26,062 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:26,064 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1772 saída=361 total=2133
+2026-11-18 20:43:26,582 [INFO] app: Verificação de Adriane Lopes: {'oficial': 12, 'modo_critico': 4}
+2026-11-18 20:43:31,426 [INFO] app: Coleta de Arthur Henrique: 216 resultados brutos, 167 únicos
+2026-11-18 20:43:32,024 [INFO] app: Artigos de Arthur Henrique: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:43:32,052 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:33,999 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:34,001 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1706 saída=24 total=1730
+2026-11-18 20:43:34,385 [INFO] app: Verificação de Arthur Henrique: {'modo_critico': 5, 'oficial': 7}
+2026-11-18 20:43:38,937 [INFO] app: Coleta de Bruno Reis: 207 resultados brutos, 185 únicos
+2026-11-18 20:43:39,673 [INFO] app: Artigos de Bruno Reis: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:43:40,110 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:40,993 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:40,995 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1909 saída=25 total=1934
+2026-11-18 20:43:41,383 [INFO] app: Verificação de Bruno Reis: {'modo_critico': 7, 'oficial': 5}
+2026-11-18 20:43:45,718 [INFO] app: Coleta de Cícero Lucena: 205 resultados brutos, 177 únicos
+2026-11-18 20:43:46,402 [INFO] app: Artigos de Cícero Lucena: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:43:46,433 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:48,391 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:48,393 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1731 saída=335 total=2066
+2026-11-18 20:43:48,851 [INFO] app: Verificação de Cícero Lucena: {'modo_critico': 9, 'oficial': 7}
+2026-11-18 20:43:53,414 [INFO] app: Coleta de David Almeida: 194 resultados brutos, 159 únicos
+2026-11-18 20:43:54,163 [INFO] app: Artigos de David Almeida: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:43:54,197 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:43:55,128 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:43:55,130 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1688 saída=24 total=1712
+2026-11-18 20:43:55,575 [INFO] app: Verificação de David Almeida: {'modo_critico': 3, 'oficial': 9}
+2026-11-18 20:43:59,755 [INFO] app: Coleta de Dr. Furlan: 188 resultados brutos, 151 únicos
+2026-11-18 20:44:00,396 [INFO] app: Artigos de Dr. Furlan: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:00,421 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:01,537 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:01,538 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1698 saída=123 total=1821
+2026-11-18 20:44:02,145 [INFO] app: Verificação de Dr. Furlan: {'oficial': 8, 'modo_critico': 5}
+2026-11-18 20:44:06,771 [INFO] app: Coleta de Eduardo Braide: 301 resultados brutos, 211 únicos
+2026-11-18 20:44:07,433 [INFO] app: Artigos de Eduardo Braide: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:07,464 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:08,950 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:08,952 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1861 saída=171 total=2032
+2026-11-18 20:44:09,453 [INFO] app: Verificação de Eduardo Braide: {'oficial': 7, 'modo_critico': 7}
+2026-11-18 20:44:14,456 [INFO] app: Coleta de Eduardo Paes: 269 resultados brutos, 213 únicos
+2026-11-18 20:44:15,235 [INFO] app: Artigos de Eduardo Paes: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:15,262 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:22,135 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:22,137 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1681 saída=96 total=1777
+2026-11-18 20:44:22,606 [INFO] app: Verificação de Eduardo Paes: {'oficial': 3, 'modo_critico': 10}
+2026-11-18 20:44:27,378 [INFO] app: Coleta de Eduardo Pimentel: 238 resultados brutos, 210 únicos
+2026-11-18 20:44:28,115 [INFO] app: Artigos de Eduardo Pimentel: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:28,140 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:29,488 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:29,490 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1685 saída=24 total=1709
+2026-11-18 20:44:29,854 [INFO] app: Verificação de Eduardo Pimentel: {'modo_critico': 6, 'oficial': 6}
+2026-11-18 20:44:34,178 [INFO] app: Coleta de Eduardo Siqueira Campos: 222 resultados brutos, 159 únicos
+2026-11-18 20:44:34,744 [INFO] app: Artigos de Eduardo Siqueira Campos: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:34,772 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:35,702 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:35,703 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1682 saída=90 total=1772
+2026-11-18 20:44:36,243 [INFO] app: Verificação de Eduardo Siqueira Campos: {'oficial': 6, 'modo_critico': 7}
+2026-11-18 20:44:41,057 [INFO] app: Coleta de Emília Corrêa: 233 resultados brutos, 199 únicos
+2026-11-18 20:44:41,786 [INFO] app: Artigos de Emília Corrêa: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:41,817 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:45,246 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:45,248 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1733 saída=634 total=2367
+2026-11-18 20:44:45,566 [INFO] app: Verificação de Emília Corrêa: {'oficial': 7}
+2026-11-18 20:44:49,559 [INFO] app: Coleta de Evandro Leitão: 241 resultados brutos, 196 únicos
+2026-11-18 20:44:50,333 [INFO] app: Artigos de Evandro Leitão: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:44:50,513 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:51,443 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:51,445 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1712 saída=10 total=1722
+2026-11-18 20:44:51,831 [INFO] app: Verificação de Evandro Leitão: {'modo_critico': 6, 'oficial': 5, 'fonte_baixa': 1}
+2026-11-18 20:44:56,239 [INFO] app: Coleta de Fuad Noman: 170 resultados brutos, 135 únicos
+2026-11-18 20:44:56,912 [INFO] app: Artigos de Fuad Noman: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:44:56,942 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:44:58,306 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:44:58,308 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1696 saída=209 total=1905
+2026-11-18 20:44:58,786 [INFO] app: Verificação de Fuad Noman: {'oficial': 9, 'modo_critico': 5}
+2026-11-18 20:45:03,867 [INFO] app: Coleta de Igor Normando: 183 resultados brutos, 144 únicos
+2026-11-18 20:45:04,454 [INFO] app: Artigos de Igor Normando: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:45:05,238 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:07,281 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:07,283 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1776 saída=631 total=2407
+2026-11-18 20:45:07,578 [INFO] app: Verificação de Igor Normando: {'oficial': 1, 'fonte_baixa': 6}
+2026-11-18 20:45:11,439 [INFO] app: Coleta de JHC: 227 resultados brutos, 184 únicos
+2026-11-18 20:45:12,093 [INFO] app: Artigos de JHC: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:45:13,430 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:15,094 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:15,095 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=2055 saída=391 total=2446
+2026-11-18 20:45:15,596 [INFO] app: Verificação de JHC: {'oficial': 8, 'sem_evidencia': 1, 'modo_critico': 7}
+2026-11-18 20:45:20,738 [INFO] app: Coleta de João Campos: 235 resultados brutos, 194 únicos
+2026-11-18 20:45:21,483 [INFO] app: Artigos de João Campos: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:45:21,510 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:22,563 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:22,565 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1702 saída=163 total=1865
+2026-11-18 20:45:22,947 [INFO] app: Verificação de João Campos: {'oficial': 7, 'modo_critico': 5}
+2026-11-18 20:45:27,359 [INFO] app: Coleta de Lorenzo Pazolini: 169 resultados brutos, 142 únicos
+2026-11-18 20:45:28,008 [INFO] app: Artigos de Lorenzo Pazolini: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:45:28,035 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:29,179 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:29,181 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1666 saída=24 total=1690
+2026-11-18 20:45:29,684 [INFO] app: Verificação de Lorenzo Pazolini: {'modo_critico': 8, 'oficial': 4}
+2026-11-18 20:45:34,547 [INFO] app: Coleta de Léo Moraes: 225 resultados brutos, 180 únicos
+2026-11-18 20:45:35,372 [INFO] app: Artigos de Léo Moraes: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:45:35,401 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:37,741 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:37,743 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1734 saída=743 total=2477
+2026-11-18 20:45:38,045 [INFO] app: Verificação de Léo Moraes: {'oficial': 9}
+2026-11-18 20:45:42,221 [INFO] app: Coleta de Paulinho Freire: 210 resultados brutos, 158 únicos
+2026-11-18 20:45:42,887 [INFO] app: Artigos de Paulinho Freire: 36 lidos, 12 aproveitados, 2 descartados
+2026-11-18 20:45:42,914 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:43,902 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:43,905 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1676 saída=98 total=1774
+2026-11-18 20:45:44,321 [INFO] app: Verificação de Paulinho Freire: {'oficial': 5, 'modo_critico': 8}
+2026-11-18 20:45:50,185 [INFO] app: Coleta de Sandro Mabel: 235 resultados brutos, 200 únicos
+2026-11-18 20:45:50,963 [INFO] app: Artigos de Sandro Mabel: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:45:50,989 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:52,016 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:52,018 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1696 saída=163 total=1859
+2026-11-18 20:45:52,401 [INFO] app: Verificação de Sandro Mabel: {'modo_critico': 8, 'oficial': 4}
+2026-11-18 20:45:57,028 [INFO] app: Coleta de Sebastião Melo: 125 resultados brutos, 113 únicos
+2026-11-18 20:45:57,654 [INFO] app: Artigos de Sebastião Melo: 36 lidos, 12 aproveitados, 1 descartados
+2026-11-18 20:45:57,680 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:45:59,205 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:45:59,207 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1718 saída=182 total=1900
+2026-11-18 20:45:59,609 [INFO] app: Verificação de Sebastião Melo: {'oficial': 2, 'sem_evidencia': 1, 'modo_critico': 4}
+2026-11-18 20:46:03,882 [INFO] app: Coleta de Silvio Mendes: 186 resultados brutos, 145 únicos
+2026-11-18 20:46:04,822 [INFO] app: Artigos de Silvio Mendes: 36 lidos, 12 aproveitados, 2 descartados
+2026-11-18 20:46:04,849 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:46:05,677 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:46:05,679 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1681 saída=24 total=1705
+2026-11-18 20:46:06,014 [INFO] app: Verificação de Silvio Mendes: {'modo_critico': 8, 'oficial': 4}
+2026-11-18 20:46:10,706 [INFO] app: Coleta de Tião Bocalom: 162 resultados brutos, 134 únicos
+2026-11-18 20:46:11,345 [INFO] app: Artigos de Tião Bocalom: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:46:11,375 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:46:13,079 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:46:13,081 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1709 saída=425 total=2134
+2026-11-18 20:46:13,456 [INFO] app: Verificação de Tião Bocalom: {'oficial': 5}
+2026-11-18 20:46:17,324 [INFO] app: Coleta de Topázio Neto: 146 resultados brutos, 124 únicos
+2026-11-18 20:46:18,061 [INFO] app: Artigos de Topázio Neto: 36 lidos, 12 aproveitados, 0 descartados
+2026-11-18 20:46:18,087 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-11-18 20:46:19,607 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-18 20:46:19,609 [INFO] app: Gemini gemini-3.5-flash-lite: entrada=1670 saída=240 total=1910
+2026-11-18 20:46:20,307 [INFO] app: Verificação de Topázio Neto: {'oficial': 10, 'modo_critico': 5}
